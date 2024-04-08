@@ -1,0 +1,9 @@
+{
+  "/api": {
+    "target": "https://app.ticketmaster.com/discovery/v2/events.json",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": { "^/api": "" }
+  }
+}

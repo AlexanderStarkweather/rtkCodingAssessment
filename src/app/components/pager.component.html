@@ -1,0 +1,22 @@
+<div class="btn-group">
+  <!--Previous-->
+  <button class="btn btn-outline-dark default">
+    <svg class="feather">
+      <use href="assets/feather-sprite.svg#chevron-left" />
+    </svg>
+    <span>Previous</span>
+  </button>
+  <!--Numbered buttons-->
+  <button
+    class="btn btn-outline-dark default"
+    *ngFor="let page of pages; let i = index">
+    <span>{{ i }}</span>
+  </button>
+  <!--Next-->
+  <button class="btn btn-outline-dark default">
+    <span>Next</span>
+    <svg class="feather">
+      <use href="assets/feather-sprite.svg#chevron-right" />
+    </svg>
+  </button>
+</div>

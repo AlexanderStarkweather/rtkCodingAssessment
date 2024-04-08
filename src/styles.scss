@@ -1,0 +1,167 @@
+$spacer: 1rem;
+$card-cap-bg: transparent;
+$card-spacer-y: $spacer * 0.75;
+$card-spacer-x: $spacer * 0.75;
+$card-cap-padding-y: $card-spacer-y;
+$card-cap-padding-x: $card-spacer-x;
+$input-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  color 0.15s ease-in-out;
+@import 'bootstrap/scss/bootstrap';
+
+.card {
+  header {
+    @extend .card-header;
+  }
+  main {
+    @extend .card-body;
+  }
+  footer {
+    @extend .card-footer;
+  }
+  &.seamless {
+    border: none;
+    $border: $card-border-width solid $card-border-color;
+
+    .card-img-top {
+      background-color: $dark;
+      box-shadow: none;
+      min-height: 290px;
+
+      @include media-breakpoint-up(sm) {
+        min-height: 188px;
+      }
+      @include media-breakpoint-up(md) {
+        min-height: 256px;
+      }
+      @include media-breakpoint-up(lg) {
+        min-height: 200px;
+      }
+      @include media-breakpoint-up(xl) {
+        min-height: 234px;
+      }
+    }
+
+    .card-body {
+      border-left: $border;
+      border-right: $border;
+    }
+    .card-footer {
+      border: $border;
+      border-top: none;
+    }
+  }
+}
+
+.animates {
+  transition: $btn-transition;
+}
+
+.ghost {
+  opacity: 0.5;
+}
+
+.feather {
+  width: $spacer * 1.5;
+  height: $spacer * 1.5;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+
+  &.sm {
+    width: $spacer;
+    height: $spacer;
+  }
+  &.lg {
+    width: $spacer * 3;
+    height: $spacer * 3;
+  }
+}
+
+.alert {
+  @extend .d-flex, .align-items-center, .gap-3;
+}
+
+.btn {
+  &.default {
+    @extend .d-flex, .align-items-center, .gap-2;
+  }
+  &.center {
+    @extend .d-flex, .gap-2, .justify-content-center, .align-items-center;
+  }
+}
+
+.logotype {
+  @extend .display-1, .text-center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.searchWrapper {
+  max-width: 50rem;
+}
+
+.searchInput {
+  @extend .input-group;
+  border-radius: $input-border-radius;
+  transition: $input-transition;
+
+  .form-control {
+    border-right: none;
+
+    &:focus {
+      box-shadow: none;
+      border-color: $input-border-color;
+    }
+  }
+
+  .input-group-text {
+    background-color: $input-bg;
+    border-color: $input-border-color;
+  }
+
+  .clearInput {
+    @extend .btn-link, .text-dark;
+    border-color: $input-border-color;
+    border-left: none;
+
+    &,
+    &:hover,
+    &:active,
+    &[disabled] {
+      background-color: $input-bg;
+      opacity: 1;
+    }
+
+    &[disabled] {
+      color: transparent !important;
+    }
+
+    &:active {
+      border-color: $input-border-color;
+    }
+  }
+
+  &.focus {
+    box-shadow: $focus-ring-box-shadow;
+
+    .clearInput,
+    .form-control {
+      border-color: $input-focus-border-color;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1000ms infinite linear;
+}

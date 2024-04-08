@@ -1,0 +1,25 @@
+<div
+  class="searchInput"
+  [class.focus]="focused">
+  <!-- <div class="input-group-text">
+    <svg class="feather">
+      <use href="assets/feather-sprite.svg#filter" />
+    </svg>
+  </div> -->
+  <input
+    class="form-control"
+    type="text"
+    placeholder="Type to filter results by name/date"
+    [(ngModel)]="keyword"
+    (input)="onKeywordChange()"
+    (focus)="focused = true"
+    (blur)="focused = false" />
+  <button
+    class="btn default clearInput"
+    [disabled]="keyword.length < 1"
+    (click)="clearFilter()">
+    <svg class="feather">
+      <use href="assets/feather-sprite.svg#x" />
+    </svg>
+  </button>
+</div>

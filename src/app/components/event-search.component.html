@@ -1,0 +1,35 @@
+<form
+  class="d-flex gap-2"
+  (ngSubmit)="submitSearch()">
+  <div
+    class="searchInput input-group-lg"
+    [class.focus]="focused">
+    <input
+      name="keyword"
+      [(ngModel)]="keyword"
+      (focus)="focused = true"
+      (blur)="focused = false"
+      class="form-control"
+      type="search"
+      size="40"
+      placeholder="Search for events"
+      autofocus />
+    <button
+      type="button"
+      class="btn default clearInput"
+      [disabled]="keyword.length < 1"
+      (click)="clearSearch()">
+      <svg class="feather">
+        <use href="assets/feather-sprite.svg#x" />
+      </svg>
+    </button>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary btn-lg default">
+    <svg class="feather">
+      <use href="assets/feather-sprite.svg#search" />
+    </svg>
+    <span>Search</span>
+  </button>
+</form>

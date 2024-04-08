@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-center gap-2">
+  <button
+    *ngFor="let alert of alerts"
+    class="btn btn-danger default p-3"
+    (click)="remove(alert.name)">
+    <svg class="feather">
+      <use href="assets/feather-sprite.svg#alert-triangle" />
+    </svg>
+    <span *ngIf="alert.status">
+      <strong>Error {{ alert.status }}: </strong>
+      <span>{{ alert.statusText }}</span>
+    </span>
+    <span *ngIf="!alert.status">Something went wrong.</span>
+  </button>
+</div>

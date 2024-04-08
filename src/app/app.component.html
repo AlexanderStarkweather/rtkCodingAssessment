@@ -1,0 +1,49 @@
+<div>
+  <header
+    id="pageTop"
+    class="container-fluid text-bg-dark pb-2">
+    <div class="container text-center">
+      <a
+        href="#"
+        class="logotype"
+        (click)="resetSearch()">
+        Ticketmaster Events
+      </a>
+    </div>
+  </header>
+  <header class="sticky-top bg-dark py-2 mb-2">
+    <div class="container d-flex flex-column">
+      <div class="d-flex flex-column gap-2 searchWrapper m-auto">
+        <event-search (searchEvent)="search($event)"></event-search>
+        <event-filter (filterEvent)="filter($event)"></event-filter>
+      </div>
+    </div>
+  </header>
+  <main class="container d-flex flex-column gap-3">
+    <alert-list></alert-list>
+    <!--Loading indicator-->
+    <div
+      *ngIf="isLoading"
+      class="text-center text-muted my-5">
+      <svg class="feather spinner lg">
+        <use href="assets/feather-sprite.svg#loader" />
+      </svg>
+      <h1>Searching events</h1>
+    </div>
+    <!--Events results-->
+    <event-list
+      class="animates"
+      [class.ghost]="isLoading"
+      [events]="filteredResults"></event-list>
+    <!--None found message-->
+    <div
+      *ngIf="isEmpty"
+      class="text-center text-muted">
+      <svg class="feather lg my-3">
+        <use href="assets/feather-sprite.svg#frown" />
+      </svg>
+      <h5>There were no events found matching your search.</h5>
+      <h6>Try adjusting your search terms.</h6>
+    </div>
+  </main>
+</div>
